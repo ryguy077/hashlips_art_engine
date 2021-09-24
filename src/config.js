@@ -1,31 +1,34 @@
-"use strict";
-
-const path = require("path");
-const isLocal = typeof process.pkg === "undefined";
-const basePath = isLocal ? process.cwd() : path.dirname(process.execPath);
-const { MODE } = require(path.join(basePath, "src/blendMode.js"));
+const { MODE } = require("./blendMode.js");
 const description =
-  "This is the description of your NFT project, remember to replace this";
-const baseUri = "ipfs://NewUriToReplace";
+  "Degenerate Bananas!";
+//const baseUri = "ipfs://QmNfPMWLPTEbFpBtPFy4wkYEHRVWcz8dzjziTcPbebzF53";
+const baseUri = "../images";
 
 const layerConfigurations = [
   {
-    growEditionSizeTo: 10,
+    growEditionSizeTo: 100,
     layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "00 Base Image" },
+      { name: "01 Fruit Pop" },
+      { name: "02 Zombie Fruit Overlay" },
+      { name: "03 Gold Fruit" },
+      { name: "04 Peels" },
+      { name: "05 Zombie Peel Overlay" },
+      { name: "07 Golden Peel" },
+      { name: "08 Shirts" },
+      { name: "09 Necklaces" },
+      { name: "10 Stickers" },
+      { name: "11 Arms" },
+      { name: "12 Drips" },
+      { name: "13 Mouths Masks" },
+      { name: "14 Eyes" },
+      { name: "15 Beanies" },
+      { name: "16 Glasses" },
+      { name: "17 Bites Explosions" },
+      { name: "18 Shadow Always On" },
     ],
   },
 ];
-
-const shuffleLayerConfigurations = false;
-
-const debugLogs = false;
 
 const format = {
   width: 512,
@@ -37,18 +40,16 @@ const background = {
   brightness: "80%",
 };
 
-const extraMetadata = {};
-
-const rarityDelimiter = "#";
-
-const uniqueDnaTorrance = 10000;
-
 const preview = {
   thumbPerRow: 5,
   thumbWidth: 50,
   imageRatio: format.width / format.height,
   imageName: "preview.png",
 };
+
+const rarityDelimiter = "#";
+
+const uniqueDnaTorrance = 10000;
 
 module.exports = {
   format,
@@ -59,7 +60,4 @@ module.exports = {
   layerConfigurations,
   rarityDelimiter,
   preview,
-  shuffleLayerConfigurations,
-  debugLogs,
-  extraMetadata,
 };
